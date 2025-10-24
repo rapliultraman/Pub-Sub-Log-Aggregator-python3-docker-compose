@@ -56,15 +56,6 @@ sudo docker compose up
 sudo docker compose run -e MODE=TEST aggregator
 ```
 
-## 🧱 Arsitektur Sistem
-
-```mermaid
-flowchart LR
-  A[Publisher Service] -->|POST /publish| B[Aggregator Service]
-  B --> C[asyncio.Queue]
-  C --> D[Consumer Processor]
-  D -->|Insert unique| E[(SQLite Dedup Store)]
-  D --> F[Subscriber]
 
 
 
